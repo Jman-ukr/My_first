@@ -1959,9 +1959,260 @@ time надає більш гнучкий підхід для вимірюван
 Використовуйте time, якщо вам потрібно виміряти загальний час виконання більшої програми або складнішого алгоритму."""
 
 
-"""Користувацькі функції def()"""
+"""Користувацькі функції def() — це визначені користувачем блоки коду, які можна викликати за допомогою імені функції, 
+щоб виконати певну задачу. Функції допомагають робити код більш організованим, модульним і повторно використовуваним. 
+"""
 # def ім'я_функції(параметри):
 #     '''Документація функції'''
 #     блок_коду
 #     return значення
+# print("After me: Hello fellows")
 
+"""Після ключового слова return виконання функції буде завершене"""
+# def func():
+#     print("Text until return")
+#     return "Returned result"
+#     print("That instruction never won't be done")
+# print(func())
+
+"""Інструкції return може не бути взагалі"""
+# def print_ok():
+#     print("Message Ok")
+# print(print_ok())
+
+"""Об'єднання рядків rows"""
+# def merging_lists(row1:str, row2:str) -> str:
+#     return row1 + row2
+# print(merging_lists('str', 'ing'))
+
+"""Інструкція def створює об'єкт, який має тип function і зберігає посилання на нього в ідентифікаторі. 
+Таким чином ми можемо зберегти це посилання в іншій змінній або передати як аргумент в іншу функцію."""
+
+# def sum(x, y):
+#     return x + y
+# f = sum
+# v = f(10, 20)
+# print(v)
+
+"""Напишіть функцію use_for_list, яка приймає два аргументи: функцію f і список lst. 
+Функція use_for_list повинна повернути новий список, у якому до кожного елементу початкового списку 
+застосовано функцію f."""
+
+# def double(x):
+#     return x * 2
+#
+# def use_for_list(func, lst):
+#     return [double(element) for element in lst]
+#
+# list_of_numbers = list(range(1, 11))
+# new_list_double_numbers = use_for_list(double, list_of_numbers)
+# print(new_list_double_numbers)
+
+"""Using *args and **kwargs Ви також можете використовувати * args (позиційні аргументи) і * * kwargs (аргументи ключових слів) 
+для створення функцій зі змінною кількістю параметрів:"""
+
+# def arbitrary_function(required_param, *args, **kwargs): # *args - кортеж; **kwargs - словник
+#     print(f"Required parameter: {required_param}")
+#     if args:
+#         print(f"Additional positional arguments: {args}")
+#     if kwargs:
+#         print(f"Additional keyword arguments: {kwargs}")
+
+# Function calls with different parameters
+# arbitrary_function("Required")                              # Outputs: Required parameter: Required
+# arbitrary_function("Required", 1, 2, 3)                      # Outputs: Required parameter: Required
+                                                            #         Additional positional arguments: (1, 2, 3)
+# arbitrary_function("Required", key1="value1", key2="value2") # Outputs: Required parameter: Required
+                                                            #         Additional keyword arguments: {'key1': 'value1', 'key2': 'value2'}
+
+"""Порядок обробки аргументів у Python
+При виклику функції аргументи обробляються в такому порядку:
+
+Позиційні аргументи: Аргументи, що передаються в тому ж порядку, в якому вони визначені у функції.
+Іменовані аргументи: Аргументи, які передаються у вигляді ключ-значення.
+Значення за замовчуванням: Якщо значення для аргументу не передане, використовується значення за замовчуванням, яке було визначене при створенні функції.
+*args (позиційні аргументи довільної довжини): Ці аргументи дозволяють передавати змінну кількість позиційних аргументів.
+**kwargs (іменовані аргументи довільної довжини): Ці аргументи дозволяють передавати змінну кількість іменованих аргументів.
+Приклад з поясненням"""
+
+# def example_function(a, b=2, *args, **kwargs):
+#     print(f"a: {a}")
+#     print(f"b: {b}")
+#     print(f"args: {args}")
+#     print(f"kwargs: {kwargs}")
+
+# Виклики функції з різними аргументами
+# example_function(1)                          # a: 1, b: 2, args: (), kwargs: {}
+# example_function(1, 3)                       # a: 1, b: 3, args: (), kwargs: {}
+# example_function(1, 3, 4, 5)                 # a: 1, b: 3, args: (4, 5), kwargs: {}
+# example_function(1, 3, 4, 5, key1="value1")  # a: 1, b: 3, args: (4, 5), kwargs: {'key1': 'value1'}
+"""Пояснення коду
+Позиційні аргументи (a): Перший аргумент 1 прив'язується до параметра a.
+Іменовані аргументи з значенням за замовчуванням (b=2): Другий аргумент 3 (якщо передано) прив'язується до параметра b, 
+інакше використовується значення за замовчуванням 2.
+*args (позиційні аргументи довільної довжини): Аргументи 4 та 5 прив'язуються до *args у вигляді кортежу (4, 5).
+**kwargs (іменовані аргументи довільної довжини): Іменовані аргументи key1="value1" прив'язуються до 
+**kwargs у вигляді словника {'key1': 'value1'}."""
+
+"""Правила виклику функцій
+Позиційні аргументи повинні передаватися першими.
+Іменовані аргументи можуть передаватися в будь-якому порядку, але вони повинні йти після всіх позиційних аргументів.
+*args збирає всі додаткові позиційні аргументи, що залишилися.
+**kwargs збирає всі додаткові іменовані аргументи, що залишилися.
+Приклад з повним набором аргументів"""
+
+# def full_example(a, b=2, c=3, *args, **kwargs):
+#     print(f"a: {a}")
+#     print(f"b: {b}")
+#     print(f"c: {c}")
+#     print(f"args: {args}")
+#     print(f"kwargs: {kwargs}")
+
+# Виклик функції
+# full_example(1, 4, 5, 6, 7, key1="value1", key2="value2")
+# a: 1
+# b: 4
+# c: 5
+# args: (6, 7)
+# kwargs: {'key1': 'value1', 'key2': 'value2'}
+"""Цей порядок аргументів дозволяє гнучко викликати функції з різними наборами параметрів, забезпечуючи зручність і читабельність коду."""
+
+"""Довільна кількість параметрів функції"""
+# def summa(*t): # всі позиційні аргументи будуть зібрані в кортеж
+#     res = 0
+#     for i in t:
+#         res += i
+#     return res
+# print(summa(10, 20, 30))
+
+"""Анонімні функції lambda() в Python часто називають "lambda-функції". Вони корисні для написання коротких, одноразових 
+функцій без необхідності давати їм ім'я. В основі лежить ключове слово lambda."""
+""" Створення lambda-функції для додавання двох чисел"""
+# add = lambda x, y: x + y
+# print(add(2, 3))  # Виведе: 5
+
+""" Використання lambda для множення кожного елемента на 2"""
+# numbers = [1, 2, 3, 4]
+# doubled = map(lambda x: x * 2, numbers)
+# print(list(doubled))  # Виведе: [2, 4, 6, 8]
+
+""" Використання lambda для фільтрації парних чисел"""
+# numbers = [1, 2, 3, 4, 5, 6]
+# evens = filter(lambda x: x % 2 == 0, numbers)
+# print(list(evens))  # Виведе: [2, 4, 6]
+
+# from functools import reduce
+
+""" Використання lambda для обчислення суми елементів списку"""
+# numbers = [1, 2, 3, 4]
+# total = reduce(lambda x, y: x + y, numbers)
+# print(total)  # Виведе: 10
+
+"""Функції-генератори в Python — це функції, які дозволяють створювати ітератори у більш простий і зручний спосіб. 
+Вони використовують ключове слово yield замість return для повернення значення. Основна відмінність полягає в тому, 
+що функція-генератор запам'ятовує свій стан між викликами і відновлює виконання з того місця, де було викликане yield."""
+
+"""Ключове слово yield: Використовується для повернення значення і зупинки виконання функції. 
+При наступному виклику генератора виконання продовжується з місця, де було зупинено.
+Ліниве обчислення: Значення генеруються по мірі потреби, що дозволяє економити пам'ять.
+Зручність для ітерацій: Ітерації над великими або нескінченними послідовностями стають більш ефективними."""
+
+"""Генератор для створення послідовності чисел:"""
+# def count_up_to(max):
+#     count = 1
+#     while count <= max:
+#         yield count
+#         count += 1
+
+# counter = count_up_to(5)
+# for num in counter:
+#     print(num)
+
+"""Генератор для обробки файлів построчно:"""
+
+# def read_file_in_chunks(file_name):
+#     with open(file_name, 'r') as file:
+#         while chunk := file.read(1024):  # Читаємо по 1024 байта
+#             yield chunk
+
+# for chunk in read_file_in_chunks('example.txt'):
+#     print(chunk)
+
+"""Переваги використання генераторів:
+Ефективне використання пам'яті: Генератори створюють значення по мірі необхідності, що дозволяє працювати з великими 
+даними,не завантажуючи всю послідовність у пам'ять.
+Простота синтаксису: Легше реалізувати ітераційні алгоритми в порівнянні зі звичайними функціями та ітераторами.
+Ліниве обчислення: Значення генеруються лише тоді, коли вони необхідні, що може покращити продуктивність."""
+
+
+
+"""Декоратори в Python, function decorators — це спеціальні функції, які дозволяють змінювати або розширювати поведінку 
+інших функцій або методів. Вони часто використовуються для додавання повторюваних шаблонів, таких як логування, 
+контроль доступу, кешування тощо, до функцій без зміни їх коду."""
+
+"""Переваги декораторів:
+Повторне використання коду: Декоратори дозволяють багаторазово використовувати один і той же код для розширення функціональності різних функцій.
+Зручність: Вони дозволяють змінювати поведінку функцій без зміни їх коду.
+Читабельність: Код стає більш структурованим і легко читається."""
+
+# створення функції декоратора
+# def my_decorator(func):
+#     def wrapper():
+#         print("Something is doing before calling the function")
+#         func()
+#         print("Something is doing after calling the function")
+#     return wrapper
+
+# створення функції, яку будемо декорувати
+# def say_hello():
+#     print("Hi!")
+
+# застосовуєм декоратор до функції
+# decorated_function = my_decorator(say_hello)
+
+# Тепер, коли ви викличете decorated_function, виконаються додаткові дії до і після виклику оригінальної функції say_hello:
+
+# decorated_function()
+
+
+"""Декоратор з аргументами"""
+# def my_decorator(func):
+#     def wrapper(*args, **kwargs):
+#         print("Something is doing before calling the function")
+#         result = func(*args, **kwargs)
+#         print("Something is doing after calling the function")
+#         return result
+#     return wrapper
+
+# @my_decorator
+# def say_hi(name):
+#     print(f'Hi, {name}!')
+# say_hi('Jman')
+
+"""Завдання: Декоратор для логування аргументів та результату функції"""
+
+# def log_decorator(func):
+#     def wrapper(*args, **kwargs):
+#         print(f'Call function {func.__name__} with arguments {args} and {kwargs}')
+#         result = func(*args, **kwargs)
+#         print(f'Function {func.__name__} return {result}')
+#         return result
+#     return wrapper
+
+# @log_decorator
+# def add(a, b):
+#     return a + b
+
+# result = add(5, 3)
+# print(f'Result of add is : {result}')
+
+# @log_decorator
+# def multiply(x, y):
+#     return x * y
+
+# result = multiply(4, 7)
+# print(f'Result of multiply is {result}')
+
+"""Recursion Рекурсія"""
+
+def first_recursion():
