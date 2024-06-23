@@ -2215,4 +2215,4 @@ time надає більш гнучкий підхід для вимірюван
 
 """Recursion Рекурсія"""
 
-def first_recursion():
+print("Hello Dude")
