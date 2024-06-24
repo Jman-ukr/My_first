@@ -1106,7 +1106,7 @@ element: Значення елемента, який був видалений."
 # print(slice_tuple_list_values)
 
 """Створіть кортеж, який містить координати точки в тривимірному просторі (x, y, z)."""
-x, y, z = (34, 56, 118)
+# x, y, z = (34, 56, 118)
 
 """Порівняйте два кортежі і виведіть повідомлення про те, чи вони рівні, чи різні."""
 
@@ -2155,6 +2155,16 @@ time надає більш гнучкий підхід для вимірюван
 Зручність: Вони дозволяють змінювати поведінку функцій без зміни їх коду.
 Читабельність: Код стає більш структурованим і легко читається."""
 
+"""Основні випадки, де декоратори функцій використовуються найчастіше:
+1. Логування та трасування (logging and tracing):
+2. Кешування (caching):
+3. Перевірка та валідація (validation):
+4. Контроль доступу та аутентифікація (access control and authentication):
+5. Обробка винятків (exception handling):
+6. Мемоізація (memoization):
+7. Аналіз продуктивності (performance profiling):
+8. Модифікація поведінки функцій (modifying function behavior):"""
+
 # створення функції декоратора
 # def my_decorator(func):
 #     def wrapper():
@@ -2198,21 +2208,146 @@ time надає більш гнучкий підхід для вимірюван
 #         print(f'Function {func.__name__} return {result}')
 #         return result
 #     return wrapper
-
+#
 # @log_decorator
 # def add(a, b):
 #     return a + b
-
+#
 # result = add(5, 3)
 # print(f'Result of add is : {result}')
-
+#
 # @log_decorator
 # def multiply(x, y):
 #     return x * y
-
+#
 # result = multiply(4, 7)
-# print(f'Result of multiply is {result}')
+# print(f"Result of multiply is {result}")
 
-"""Recursion Рекурсія"""
+"""Завдання: Перевірка параметрів аргументів функції"""
 
-print("Hello Dude")
+# def validate_arguments(func):
+#     def wrapper(a, b):
+#         if not (isinstance(a, (int, float)) and isinstance(b, (int, float))):
+#             raise TypeError("Arguments must be numeric")
+#         if b == 0:
+#             raise ValueError("Second argument cannot be zero")
+#         return func(a, b)
+#     return wrapper
+# @validate_arguments
+# def divide(a, b):
+#     return a / b
+# # Приклади викликів функції divide з різними аргументами:
+# try:
+#     result = divide(10, 2)
+#     print("Result of division:", result)
+#
+#     result = divide("10", 2)  # Це викличе помилку TypeError
+#     print("Result of division:", result)
+#
+#     result = divide(10, 0)  # Це викличе помилку ValueError
+#     print("Result of division:", result)
+#
+# except TypeError as e:
+#     print("Error:", e)
+# except ValueError as e:
+#     print("Error:", e)
+
+"""Контроль доступу є важливою частиною багатьох веб-додатків, розглянемо приклад, де ми створимо декоратор для 
+перевірки ролі користувача перед виконанням функції. У цьому прикладі ми припустимо, що у нас є система з двома ролями: 
+"admin" і "user"."""
+
+
+# def check_role(required_role):
+#     def decorator(func):
+#         def wrapper(user, *args, **kwargs):
+#             if 'role' not in user or user['role'] != required_role:
+#                 raise PermissionError(f"User does not have the required role: {required_role}")
+#             return func(user, *args, **kwargs)
+#
+#         return wrapper
+#
+#     return decorator
+
+
+# Приклад функції, доступної лише для адміністраторів
+# @check_role('admin')
+# def delete_user(user, user_id):
+#     print(f"User {user_id} has been deleted by {user['name']}")
+
+
+# Приклад функції, доступної лише для звичайних користувачів
+# @check_role('user')
+# def view_profile(user):
+#     print(f"User {user['name']} is viewing their profile")
+
+
+# Приклади викликів функцій з різними ролями користувачів:
+# admin_user = {'name': 'Alice', 'role': 'admin'}
+# regular_user = {'name': 'Bob', 'role': 'user'}
+
+# try:
+#     delete_user(admin_user, 123)  # Це спрацює
+#     delete_user(regular_user, 123)  # Це викличе помилку PermissionError
+
+#     view_profile(regular_user)  # Це спрацює
+#     view_profile(admin_user)  # Це викличе помилку PermissionError
+#
+# except PermissionError as e:
+#     print("Access denied:", e)
+
+"""У цьому прикладі:
+
+check_role – це декоратор, який приймає роль, необхідну для доступу до функції.
+decorator – це функція, яка обгортає оригінальну функцію і перевіряє роль користувача перед її виконанням.
+wrapper – перевіряє, чи має користувач необхідну роль. Якщо ні, викидає виняток PermissionError.
+delete_user – функція, доступна лише для користувачів з роллю "admin".
+view_profile – функція, доступна лише для користувачів з роллю "user".
+Цей приклад демонструє, як за допомогою декораторів можна реалізувати контроль доступу до функцій залежно від ролі користувача."""
+
+"""Recursion Рекурсія — це метод програмування, в якому функція викликає сама себе для розв'язання задачі. 
+Важливою частиною рекурсії є наявність базового випадку, який зупиняє рекурсивні виклики, запобігаючи зацикленню."""
+
+"""Факторіал числа"""
+
+# def factorial(n):
+#     if n == 0:
+#         return 1
+#     else:
+#         return n * factorial(n - 1)
+
+# print(factorial(5))  # Виведе: 120
+
+"""Обхід файлів у директорії"""
+
+# import os
+#
+# def list_files(directory):
+#     for entry in os.listdir(directory):
+#         path = os.path.join(directory, entry)
+#         if os.path.isdir(path):
+#             list_files(path)  # Рекурсивний виклик для піддиректорії
+#         else:
+#             print(path)  # Обробка файлу
+#
+# list_files('/path/to/directory')
+
+"""В Python змінні можуть бути глобальними та локальними, залежно від того, де вони оголошені та де використовуються. 
+Розглянемо ці поняття докладніше."""
+# def my_function():
+#     x = 10  # Локальна змінна
+#     print("Inside the function, x =", x)
+
+# my_function()
+# print("Outside the function, x =", x)  # Це викличе помилку, оскільки x не існує поза функцією
+
+# глобальна змінна
+# x = 20
+
+# def print_global_value():
+#     print(x)
+
+# print_global_value()
+
+"""Пайтон шукає змінні по порядку з LEGB
+L - локальні змінні, E - ендклоуз, G - глобальні, B - білдін"""
+
