@@ -15,5 +15,22 @@ The first character in the string is always a number."""
 #     return int(age[0])
 # print(get_age("2 years old"))
 
+"""Create a function that accepts a string and a single character, and returns an integer of the count of occurrences 
+the 2nd argument is found in the first one.
 
+If no occurrences can be found, a count of 0 should be returned."""
+# V1
+def str_count(strng, letter):
+    if not strng:
+        return 0
+    counter = 0
+    for char in strng:
+        if char == letter:
+            counter += 1
+    return counter
+print(str_count("Hello", 'o'))
 
+# V2
+def str_count(strng, letter):
+    return strng.count(letter)
+print(str_count("Hello", 'o'))

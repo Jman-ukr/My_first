@@ -250,6 +250,12 @@ import random
 # Метод strip() повертає новий рядок, у якому видалені пробіли та інші символи пропуску з початку та кінця вихідного рядка.
 # Це дозволяє легко очищати рядки від зайвих пробілів або інших символів, що можуть виникати після операцій з рядками.
 
+"""Метод .count для підрахунку клькості входжень у рядок"""
+
+# def str_count(strng, letter):
+#     return strng.count(letter)
+# print(str_count("Hello", 'o'))
+
 """Tasks from Mate academy"""
 
 # Напиши функцію get_string_length, яка приймає рядок string і повертає його довжину (кількість символів у ньому).
@@ -2442,14 +2448,32 @@ outer_function()"""
 """Напишіть програму, яка обчислює суму елементів списку за допомогою вкладених функцій. 
 Мета цього завдання - створити вкладену функцію для обробки списку та виводу результату."""
 
-def calculate_sum(numbers: list) ->int:
-    def sum_elements(nums):
-        result = 0
-        for num in nums:
-            result += num
-        return result
-    return sum_elements(numbers)
-numbers_list = [1, 2, 3, 4, 5]
-print(f"Сума елементів списку {numbers_list} дорівнює {calculate_sum(numbers_list)}")
+# def calculate_sum(numbers: list) ->int: # numbers аргумент, який приймається зовні
+#     def sum_elements(nums): # nums = numbers
+#         result = 0
+#         for num in nums:
+#             result += num
+#         return result
+#     return sum_elements(numbers)
+# numbers_list = [1, 2, 3, 4, 5]
+# print(f"Сума елементів списку {numbers_list} дорівнює {calculate_sum(numbers_list)}")
+
+"""Напишіть програму, яка реалізує функцію, що повертає іншу функцію, яка підраховує кількість своїх викликів. 
+Це приклад використання вкладених функцій та замикань."""
+# def make_counter():
+#     count = 0
+#     def counter():
+#         nonlocal count
+#         count += 1
+#         return count
+#     return counter
+# counter1 = make_counter()
+# print(counter1()) # Виведе 1
+# print(counter1()) # Виведе 2
+# print(counter1()) # Виведе 3
+
+# counter2 = make_counter()
+# print(counter2())  # Виведе 1
+# print(counter2())  # Виведе 2
 
 
