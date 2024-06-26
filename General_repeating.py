@@ -2476,4 +2476,197 @@ outer_function()"""
 # print(counter2())  # Виведе 1
 # print(counter2())  # Виведе 2
 
+"""Data annotation Функціональна анотація в Python дозволяє додавати метадані до параметрів функції та її повертаного значення. 
+Анотації не впливають на виконання коду, але вони можуть бути корисними для документування, типізації і статичного 
+аналізу коду."""
+
+# def greet(name: str, age: int) -> str:
+#     return f"Hello, {name}. You are {age} years old."
+
+# message = greet("Alice", 30)  # message буде "Hello, Alice. You are 30 years old."
+
+"""Використання анотацій з модулем typing
+Модуль typing надає додаткові типи для анотацій:
+
+List: Список значень певного типу.
+Dict: Словник з ключами та значеннями певного типу.
+Tuple: Кортеж з елементами певних типів.
+Union: Комбінація кількох типів.
+Optional: Тип, який може бути значенням або None."""
+
+# from typing import List, Dict, Tuple, Union, Optional
+
+# def complex_function(data: List[Union[int, str]], config: Dict[str, Union[str, int]], optional_value: Optional[int]) -> Tuple[int, str]:
+#     Приклад обробки
+#     count = len(data)
+#     summary = ", ".join(map(str, data))
+#     return count, summary
+
+# data = [1, "two", 3, "four"]
+# config = {"key1": "value1", "key2": 2}
+# optional_value = None
+# result = complex_function(data, config, optional_value)  # result буде (4, "1, two, 3, four")
+
+"""Доступ до анотацій
+Анотації зберігаються в атрибуті __annotations__ функції:"""
+# def multiply(x: int, y: int) -> int:
+#     return x * y
+
+# print(multiply.__annotations__)
+# Виведе: {'x': <class 'int'>, 'y': <class 'int'>, 'return': <class 'int'>}
+
+"""Moduls Модулі в Пайтоні - це файли з розширенням .py, які містять код на Python. Вони дозволяють структурувати програму, 
+розділяючи її на логічні частини, та повторно використовувати код."""
+
+"""Інструкція Import в Python використовується для завантаження модулів у ваш скрипт."""
+""" 1.Імпорт усього модуля:"""
+# import module_name
+"""При цьому ви зможете звертатися до функцій та змінних модуля через префікс module_name."""
+# import math
+# print(math.sqrt(16))  # Викликає функцію sqrt з модуля math
+
+"""2.Імпорт конкретних функцій або змінних з модуля:"""
+# from module_name import function_name, variable_name
+
+"""При цьому ви можете використовувати імпортовані функції або змінні без префіксу."""
+# from math import sqrt
+# print(sqrt(16))  # Викликає функцію sqrt без префіксу math
+
+"""3.Імпорт з псевдонімом (alias):
+Ви можете використовувати псевдонім для модуля або його частини, щоб скоротити запис або уникнути конфліктів імен."""
+# import module_name as alias
+# import numpy as np
+# print(np.array([1, 2, 3]))  # Використання псевдоніму np для numpy
+
+"""4.Імпорт усіх вмісту модуля (не рекомендується):"""
+
+# from module_name import *
+"""Це дозволяє імпортувати всі функції та змінні модуля, але може призвести до конфліктів імен і ускладнити відладку."""
+
+# from math import *
+# print(sqrt(16))  # Викликає функцію sqrt без префіксу
+
+"""5.Імпорт всередині функцій:
+Ви також можете імпортувати модулі всередині функцій. Це корисно, якщо модуль потрібен лише для певної частини коду, що може покращити продуктивність."""
+# def my_function():
+#     import math
+#     print(math.sqrt(16))
+# my_function()
+
+"""Імпорт власних модулів:
+Якщо ви створили свій модуль, просто збережіть його в тому ж каталозі, що й ваш скрипт, або у каталозі, який є у sys.path."""
+# import my_module
+# print(my_module.greet("Alice"))
+
+"""функція getattr() - отримання атрибуту модуля"""
+
+"""Щоб отримати значення атрибута модуля за допомогою функції getattr(), можна скористатися наступною процедурою:
+
+Імпортуйте модуль.
+Використовуйте функцію getattr(), щоб отримати значення атрибута.
+Приклад
+Припустимо, у нас є модуль my_module.py з наступним вмістом:"""
+
+# my_module.py
+# my_variable = 42
+# def my_function():
+#     return "Hello from my_function!"
+"""Тепер, в іншому скрипті або в інтерактивній оболонці Python, ми можемо отримати значення атрибута цього модуля так:"""
+
+# import my_module
+
+# Отримання значення змінної my_variable
+# variable_value = getattr(my_module, 'my_variable')
+# print(variable_value)  # Виведе: 42
+
+# Виклик функції my_function
+# function_value = getattr(my_module, 'my_function')()
+# print(function_value)  # Виведе: Hello from my_function!
+
+# Використання значення за замовчуванням для неіснуючого атрибута
+# non_existent = getattr(my_module, 'non_existent', 'Default Value')
+# print(non_existent)  # Виведе: Default Value
+"""Пояснення
+Імпортування модуля: Ми імпортуємо модуль за допомогою import my_module.
+Отримання значення атрибута: Використовуємо getattr(my_module, 'my_variable') для отримання значення змінної my_variable.
+Виклик функції: Використовуємо getattr(my_module, 'my_function') для отримання функції my_function і викликаємо її.
+Значення за замовчуванням: Використовуємо третій параметр getattr() для встановлення значення за замовчуванням, якщо атрибут не існує.
+Цей підхід є універсальним і може бути використаний для отримання значень будь-яких атрибутів модулів, включаючи змінні, функції, класи тощо."""
+
+"""Функція hasattr() в Python використовується для перевірки, чи існує атрибут з певним ім'ям у об'єкта. Вона повертає True, 
+якщо атрибут існує, і False в іншому випадку. Це особливо корисно при динамічному доступі до атрибутів об'єктів, 
+оскільки дозволяє уникнути винятків AttributeError"""
+#Синтаксис
+# hasattr(object, name)
+
+"""Параметри
+object: Об'єкт, в якому перевіряється наявність атрибута.
+name: Ім'я атрибута у вигляді рядка.
+Повертає
+True, якщо атрибут з заданим ім'ям існує в об'єкті.
+False, якщо атрибут не існує."""
+
+# import math
+
+# Перевірка наявності атрибута 'pi' у модулі 'math'
+# print(hasattr(math, 'pi'))  # Виведе: True
+
+# Перевірка наявності неіснуючого атрибута 'non_existent' у модулі 'math'
+# print(hasattr(math, 'non_existent'))  # Виведе: False
+
+"""Використання разом з getattr()"""
+
+# class MyClass:
+#     def __init__(self):
+#         self.value = 42
+#
+#     def greet(self):
+#         return "Hello!"
+#
+# obj = MyClass()
+#
+# # Перевірка наявності атрибута перед отриманням його значення
+# if hasattr(obj, 'value'):
+#     value = getattr(obj, 'value')
+#     print(value)  # Виведе: 42
+#
+# # Перевірка наявності методу перед викликом
+# if hasattr(obj, 'greet'):
+#     greet_method = getattr(obj, 'greet')
+#     print(greet_method())  # Виведе: Hello!
+
+"""Уникнення винятків: Дозволяє безпечно перевірити наявність атрибута перед доступом до нього, що запобігає виникненню AttributeError.
+Динамічність: Особливо корисно при роботі з динамічними або користувацькими об'єктами, де структура може бути невідомою заздалегідь."""
+
+"""Псевдоніми в Пайтоні У Python псевдоніми (або аліаси) дозволяють використовувати інше ім'я для модулів, функцій або змінних. 
+Це може бути корисно для скорочення довгих імен або уникнення конфліктів імен. Ось як можна створювати псевдоніми:"""
+
+# import module_name as alias
+
+# import numpy as np
+# import pandas as pd
+
+# Використання псевдоніму np для доступу до функцій модуля numpy
+# array = np.array([1, 2, 3])
+# print(array)
+
+# Використання псевдоніму pd для доступу до функцій модуля pandas
+# data = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})
+# print(data)
+
+# from math import sqrt as square_root
+
+# Використання псевдоніму square_root для функції sqrt
+# result = square_root(16)
+# print(result)  # Виведе: 4.0
+
+# class MyClass:
+#     def greet(self):
+#         return "Hello!"
+
+# Створення псевдоніму для методу greet
+# MyClassAlias = MyClass
+
+# obj = MyClassAlias()
+# print(obj.greet())  # Виведе: Hello!
 
