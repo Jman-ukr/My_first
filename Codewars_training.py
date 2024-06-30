@@ -73,18 +73,50 @@ Note: for this kata y isn't considered a vowel."""
 """In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number."""
 
 # V1
-def high_and_low(numbers):
-    list_of_num = list(map(int, numbers.split())) # Розділяємо рядок на список чисел і конвертуємо кожен елемент у ціле число
-    min_num = min(list_of_num)
-    max_num = max(list_of_num)
-    result = f'{max_num} {min_num}'
-    return result
+# def high_and_low(numbers):
+#     list_of_num = list(map(int, numbers.split())) # Розділяємо рядок на список чисел і конвертуємо кожен елемент у ціле число
+#     min_num = min(list_of_num)
+#     max_num = max(list_of_num)
+#     result = f'{max_num} {min_num}'
+#     return result
 
-print(high_and_low("8 3 -5 42 -1 0 0 -9 4 7 4 -4"))
+# print(high_and_low("8 3 -5 42 -1 0 0 -9 4 7 4 -4"))
 
 # V2
-def high_and_low(numbers):
-  numbers = [int(c) for c in numbers.split(' ')]
-  return f"{max(numbers)} {min(numbers)}"
+# def high_and_low(numbers):
+#   numbers = [int(c) for c in numbers.split(' ')]
+#   return f"{max(numbers)} {min(numbers)}"
 
-print(high_and_low("8 3 -5 42 -1 0 0 -9 4 7 4 -4"))
+# print(high_and_low("8 3 -5 42 -1 0 0 -9 4 7 4 -4"))
+
+"""Напиши функцію, яка приймає список чисел і повертає їх суму."""
+# def sum_of_list(numbers: list) ->int:
+#     if not numbers:
+#         return 0
+#     result = sum(numbers)
+#     return result
+# print(sum_of_list([1, 2, 3, 4, 5]))
+
+"""Напиши функцію, яка приймає рядок і повертає цей рядок у зворотному порядку."""
+# def reverse_string(s):
+#     return s[::-1]
+# print(reverse_string("I love ChatGPT"))
+
+"""Напиши функцію, яка приймає словник і повертає ключ з найбільшим значенням."""
+# V1
+def max_value_key(d):
+    if not d:
+        return None
+    list_of_keys = []
+    for key in d.keys():
+        list_of_keys.append(key)
+    max_key = max(list_of_keys)
+    return max_key
+
+# V2
+def max_value_key(d):
+    return max(d.keys(), default=None)
+
+# Приклад використання:
+my_dict = {'a': 1, 'b': 2, 'c': 3}
+print(max_value_key(my_dict))  # Виведе: 'c'
