@@ -97,4 +97,57 @@
 #     print("first number: {0}, second number: {1}".format(num1,num2))
 # indexes()
 
+"""Функції та методи для роботи з рядками str()"""
+
+"""Напишіть програму, яка зчитує рядок від користувача і виводить його довжину."""
+# def len_str():
+#     my_str = input("Write string dude: ")
+#     print(len(my_str))
+# len_str()
+
+"""Напишіть програму, яка зчитує два рядки від користувача і об'єднує їх у один рядок."""
+# def concat_str():
+#     first_str = input("Write first string: ")
+#     second_str = input("Write second string: ")
+#     conc_str = first_str + " " + second_str
+#     print(conc_str)
+# concat_str()
+
+"""Напишіть програму, яка зчитує рядок від користувача і перевіряє, чи складається він лише з букв."""
+
+# V1
+# def is_alpha():
+#     my_str = input("Write string:")
+#     for char in my_str.lower():
+#         if not char.isalpha():
+#             print("False")
+#             return
+#     print("True")
+# is_alpha()
+
+# V2
+# def is_alpha():
+#     my_str = input("Write string:")
+#     if my_str.isalpha():
+#         print("True")
+#     else:
+#         print("False")
+#
+# is_alpha()
+
+"""Напишіть програму, яка зчитує рядок від користувача і замінює в ньому всі пробіли на символ підкреслення."""
+
+# def resub():
+#     my_str = input("Write string as always dude):")
+#     new_str = my_str.replace(" ", "_")
+#     print(new_str)
+# resub()
+
+"""Напишіть програму, яка зчитує список слів, розділених комами, від користувача і виводить їх у вигляді списку."""
+
+# def split_str():
+#     my_str = input("As always dude plus including coma:")
+#     new_split_str = my_str.split(", ")
+#     print(new_split_str)
+# split_str()
 
