@@ -146,8 +146,54 @@
 """Напишіть програму, яка зчитує список слів, розділених комами, від користувача і виводить їх у вигляді списку."""
 
 # def split_str():
-#     my_str = input("As always dude plus including coma:")
+#     my_str = input("As always dude, plus including coma:")
 #     new_split_str = my_str.split(", ")
 #     print(new_split_str)
 # split_str()
+
+"""кортежі tuple(), imutable, можуть містити будь які типи даних як і списки"""
+# my_tuple = ('Jman', 44, 'Irpin')
+# print(my_tuple[0], my_tuple[1], my_tuple[2], sep='|', end=" ")
+
+# def print_values(my_tuple):
+#     for value in my_tuple:
+#         print(value)
+#
+# # Створення кортежу
+# fruits = ('apple', 'banana', 'cherry')
+#
+# # Виклик функції з кортежем у якості аргументу
+# print_values(fruits)
+"""Розпакування кортежу"""
+# def print_fruit(a, b, c):
+#     print("First fruit: {}".format(a))
+#     print(f"Second fruit: {b}")
+#     print(f"Third fruit: {c}")
+
+# Створення кортежу
+# fruits = ('apple', 'banana', 'cherry')
+#
+# # Розпакування кортежу і передача елементів як аргументів
+# print_fruit(*fruits)
+
+"""Використання кортежів у функціях"""
+# def calculate_stats(numbers):
+#     min_num = min(numbers)
+#     max_num = max(numbers)
+#     avg_num = sum(numbers) / len(numbers)
+#     return min_num, max_num, avg_num
+#
+# # Створення кортежу з числами
+# data = (10, 25, 14, 8, 32)
+#
+# # Виклик функції і отримання результатів у вигляді кортежу
+# stats = calculate_stats(data)
+# print("Min:", stats[0])
+# print("Max:", stats[1])
+# print("Average:", stats[2])
+
+"""Множини set(), невпорядковані колекції унікальних елементів. 
+Можуть містити тільки числа, рядки, булеві значення, кортежі, None, Frozenset, хешовані об'єкти"""
+
+
 
