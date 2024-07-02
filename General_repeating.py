@@ -321,7 +321,7 @@ import random
 #     return reversed_message
 # print(decrypt_message("!!!reeb gniknird ekil eW"))
 
-# Створи функцію is_werewolf, яка приймає рядок target і повертає True, якщо це перевертень, або False — якщо ні.
+"""Створи функцію is_werewolf, яка приймає рядок target і повертає True, якщо це перевертень, або False — якщо ні."""
 
 # V1
 # def is_werewolf (target: str) -> bool:
@@ -358,6 +358,45 @@ import random
 #     sum += num
 # print(f"Sum of numbers is: {sum}")
 # input()
+
+"""Модуль string в Python надає корисні константи та функції для роботи з рядками. Давай розглянемо основні можливості 
+цього модуля та його застосування."""
+
+"""Основні константи модуля string
+string.ascii_letters: Всі літери латинського алфавіту (великі та малі)."""
+# import string
+# print(string.ascii_letters)  # 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+"""string.ascii_lowercase: Малі літери латинського алфавіту."""
+# print(string.ascii_lowercase)  # 'abcdefghijklmnopqrstuvwxyz'
+
+"""string.ascii_uppercase: Великі літери латинського алфавіту."""
+# print(string.ascii_uppercase)  # 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+"""string.digits: Цифри від 0 до 9."""
+# print(string.digits)  # '0123456789'
+
+"""string.punctuation: Всі знаки пунктуації."""
+# print(string.punctuation)  # '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+
+"""string.whitespace: Всі символи пробільних знаків (пробіл, табуляція, новий рядок тощо)."""
+# print(repr(string.whitespace))  # ' \t\n\r\x0b\x0c'
+
+"""Функція str.maketrans і метод str.translate"""
+"""Функція str.maketrans створює таблицю перекладу, яка використовується методом str.translate для заміни 
+або видалення символів у рядку."""
+# Приклад використання str.maketrans та str.translate
+# import string
+
+# text = "This is a simple text example. This example is meant to be simple, so we can analyze it easily. Let's see how many times each word appears in this text."
+
+# Створення таблиці перекладу для видалення пунктуації
+# translation_table = str.maketrans('', '', string.punctuation)
+
+# Застосування таблиці перекладу для видалення пунктуації та приведення тексту до нижнього регістру
+# clean_text = text.translate(translation_table).lower()
+
+# print(clean_text)
 
 """Bytes datatype"""
 """bytes - це не змінний (immutable) тип даних в Python, який представляє собою послідовність байтів. Кожен байт може 

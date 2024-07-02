@@ -195,5 +195,85 @@
 """Множини set(), невпорядковані колекції унікальних елементів. 
 Можуть містити тільки числа, рядки, булеві значення, кортежі, None, Frozenset, хешовані об'єкти"""
 
+"""словники dictionaries"""
 
+"""Напиши програму, яка аналізує даний текст і підраховує частоту кожного слова. Програма має вивести словник, 
+де ключами є слова, а значеннями – їх частота в тексті."""
+
+# V1
+# text = """
+# This is a simple text example. This example is meant to be simple, so we can analyze it easily.
+# Let's see how many times each word appears in this text.
+# """
+# new_text = text.replace(".", "").replace(",", "").lower()
+# words = new_text.split()
+# dict_count = {}
+# for word in words:
+#     if word in dict_count:
+#         dict_count[word] += 1
+#     else:
+#         dict_count[word] = 1
+# print(dict_count)
+
+# V2 За допомогою модуля string
+
+# import string
+#
+# text = """
+# This is a simple text example. This example is meant to be simple, so we can analyze it easily.
+# Let's see how many times each word appears in this text.
+# """
+#
+# # Видалення пунктуації та приведення тексту до нижнього регістру
+# text = text.translate(str.maketrans('', '', string.punctuation)).lower()
+#
+# # Розбиття тексту на слова
+# words = text.split()
+#
+# # Підрахунок частоти кожного слова
+# word_count = {}
+# for word in words:
+#     if word in word_count:
+#         word_count[word] += 1
+#     else:
+#         word_count[word] = 1
+#
+# print(word_count)
+
+"""Напиши функцію, яка приймає два словники та об'єднує їх. Якщо ключі в обох словниках однакові, значення мають бути додані. 
+Якщо ключ присутній лише в одному з словників, його значення просто додається в результуючий словник."""
+# def merge_dictionaries(dict1, dict2):
+#     merged_dict = dict1.copy()
+#     for key, value in dict2.items():
+#         if key in merged_dict:
+#             merged_dict[key] += value
+#         else:
+#             merged_dict[key] = value
+#     return merged_dict
+#
+# dict1 = {'a': 10, 'b': 20, 'c': 30}
+# dict2 = {'b': 25, 'c': 35, 'd': 45}
+#
+# merged_dict = merge_dictionaries(dict1, dict2)
+# print(merged_dict)
+
+"""Уяви, що у тебе є словник, де ключами є імена студентів, а значеннями – списки їх оцінок. Напиши функцію, 
+яка перетворює цей словник у словник, де ключами є оцінки, а значеннями – списки студентів, які отримали цю оцінку."""
+def transform_grades(students_grades):
+    grades_students = {}
+    for student, grades in students_grades.items():
+        for grade in grades:
+            if grade not in grades_students:
+                grades_students[grade] = []
+            grades_students[grade].append(student)
+    return grades_students
+
+students_grades = {
+    'Alice': [85, 90, 78],
+    'Bob': [90, 88, 92],
+    'Charlie': [78, 85, 85],
+}
+
+result = transform_grades(students_grades)
+print(result)
 
