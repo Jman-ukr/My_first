@@ -130,27 +130,50 @@ i.e. each input string will only ever consist of 'G', 'C', 'A' and/or 'T'."""
 that are smaller than arr[i] to the right."""
 
 #V1
-def smaller(arr):
-
-    n = len(arr)
-    result = [0] * n  # Ініціалізуємо масив результатів нулями
-
-    # Зворотній прохід по масиву
-    for i in range(n - 2, -1, -1):
-        count = 0
-        # Перевіряємо елементи праворуч від поточного елемента
-        for j in range(i + 1, n):
-            if arr[j] < arr[i]:
-                count += 1
-        # Оновлюємо результат для поточного елемента
-        result[i] = count
-
-    return result
-print(smaller([5, 4, 3, 2, 1]))
+# def smaller(arr):
+#
+#     n = len(arr)
+#     result = [0] * n  # Ініціалізуємо масив результатів нулями
+#
+#     # Зворотній прохід по масиву
+#     for i in range(n - 2, -1, -1):
+#         count = 0
+#         # Перевіряємо елементи праворуч від поточного елемента
+#         for j in range(i + 1, n):
+#             if arr[j] < arr[i]:
+#                 count += 1
+#         # Оновлюємо результат для поточного елемента
+#         result[i] = count
+#
+#     return result
+# print(smaller([5, 4, 3, 2, 1]))
 
 # V2
 
 # def smaller(arr):
 #     # Good Luck!
 #     return [len([a for a in arr[i:] if a < arr[i]]) for i in range(0, len(arr))]
+
+"""Please write a function that sums a list, but ignores any duplicated items in the list.
+
+For instance, for the list [3, 4, 3, 6] the function should return 10,
+and for the list [1, 10, 3, 10, 10] the function should return 4."""
+#V1
+def sum_no_duplicates(l):
+    count_dict = {}
+    for num in l:
+        count_dict[num] = count_dict.get(num, 0) + 1
+    result_list = [key for key, value in count_dict.items() if value == 1]
+    return sum(result_list)
+
+print(sum_no_duplicates([5, 6, 10, 3, 10, 10, 6, 7, 0, 9, 1, 1, 6, 3, 1]))
+
+
+
+#V2
+
+def sum_no_duplicates(l):
+    return sum(n for n in set(l) if l.count(n) == 1)
+
+
 
