@@ -1485,6 +1485,11 @@ itertools створює генератори, які працюють "на л�
 # d = d1 is d2 # різні об'єкти
 # print(d) # False
 
+"""Створення словника за допомогою comprehensions виразу"""
+# data = ['John_25', 'Sally_19', 'Susan_35', 'Jack_16']
+# name_age_dict = {v.split('_')[0]: v.split('_')[1] for v in data}
+# print(name_age_dict)
+
 """Створення поверхневої копії shallow copy. Поверхнева копія створює новий об'єкт, але не копіює вкладені об'єкти всередині нього. 
 Замість цього вона лише копіює посилання на ці вкладені об'єкти. Це означає, що зміни у вкладених об'єктах у копії 
 впливатимуть на оригінальний об'єкт, і навпаки."""
@@ -1738,6 +1743,133 @@ import copy
 # words = ["apple", "banana", "cherry", "date", "elderberry"]
 # my_dict = {key: len(key) for key in words}
 # print(my_dict)
+
+"""Як створити словник, де ключами є числа від 1 до 5, а значеннями - квадрати цих чисел?"""
+# my_dict = {}
+# for i in range(1, 6):
+#     my_dict[i] = i ** 2
+# for key, value in my_dict.items():
+#     print(key, value)
+"""Як видалити всі пари ключ-значення зі словника inventory, які мають значення менше 10?"""
+# filtered_inventory = {key: value for key, value in my_dict.items() if value >= 10}
+# print(filtered_inventory)
+
+""" Як вибрати випадковий ключ-значення зі словника my_dict"""
+# import random
+# my_dict = {1: 'apple', 2: 'orange', 3: 'banana', 4: 'apple', 5: 'grape', 6: 'orange'}
+# random_key, random_value = random.choice(list(my_dict.items()))
+#
+# print("Випадковий ключ:", random_key)
+# print("Випадкове значення:", random_value)
+
+""" Як перевірити, чи містить словник my_dict хоча б один ключ "age"?"""
+# my_dict = {1: 'apple', 2: 'orange', 3: 'banana', 4: 'apple', 5: 'grape', 6: 'orange'}
+# print(my_dict.get('age', None))
+
+""" Як знайти ключ за відповідним значенням "value" у словнику my_dict"""
+# my_dict = {1: 'apple', 2: 'orange', 3: 'banana', 4: 'apple', 5: 'grape', 6: 'orange'}
+# search_key = {key: value for key, value in my_dict.items() if value == 'orange'}
+# print(search_key)
+
+""" Як видалити перший елемент у словнику my_dict"""
+# my_dict = {1: 'apple', 2: 'orange', 3: 'banana', 4: 'apple', 5: 'grape', 6: 'orange'}
+# first_value = list(my_dict.values())[0] if my_dict else None
+# key_to_remove = [key for key, value in my_dict.items() if value == first_value]
+# print(type(key_to_remove))
+# for key in key_to_remove:
+#     del my_dict[key]
+# print(my_dict)
+
+""" Як об'єднати два словники, і якщо ключі співпадають, додати їхні значення?"""
+# my_dict = {1: 'apple', 2: 'orange', 3: 'banana', 4: 'apple', 5: 'grape', 6: 'orange'}
+# my_dict2 = {1: 'apple', 2: 'orange', 3: 'banana', 4: 'apple', 5: 'grape', 6: 'orange'}
+# common_double_dict = {}
+# for key, value in my_dict.items():
+#     common_double_dict[key] = my_dict.get(key, 0) + value
+# for key, value in my_dict2.items():
+#     common_double_dict[key] = my_dict2.get(key, 0) + value
+# print(common_double_dict)
+
+"""Як видалити перший елемент у словнику my_dict"""
+# my_dict = {'a': 1, 'b': 2, 'c': 3}
+# value_to_remove = list(my_dict.values())[0]
+# key_to_remove = [key for key, value in my_dict.items() if value == value_to_remove]
+# for key in key_to_remove:
+#     del my_dict[key]
+# print(my_dict)
+
+""" Як видалити всі пари ключ-значення зі словника, які мають значення, які повторюються?"""
+# my_dict = {1: 'apple', 2: 'orange', 3: 'banana', 4: 'apple', 5: 'grape', 6: 'orange'}
+# my_dict2 = {}
+# for key, value in my_dict.items():
+#     if value not in my_dict2.values():
+#         my_dict2[key] = value
+#
+# print(my_dict2)
+
+""" Як визначити, чи є два словники рівними?"""
+# my_dict = {1: 'apple', 2: 'orange', 3: 'banana', 4: 'apple', 5: 'grape', 6: 'orange'}
+# my_dict2 = {1: 'apple', 2: 'orange', 3: 'banana', 4: 'apple', 5: 'grape'}
+# if len(my_dict) == len(my_dict2):
+#     print('Yes')
+# else:
+#     print('No')
+""" Як перевірити, чи існує словник my_dict"""
+# print(my_dict)
+
+# Створюємо порожній словник з використанням анонімної функції
+# my_dict = {i + 1: lambda: random.randint(1, 100) for i in range(30)}
+
+""" Як визначити максимальне значення у словнику my_dict"""
+
+# scores = {}
+# for i in range(1, 6):
+#     scores[i] = i ** 2
+# print(scores)
+# max_value_in_dict_scores = max(value for value in scores.values())
+# print(max_value_in_dict_scores)
+
+"""#Створіть словник чисел і використайте анонімну функцію для відфільтрування лише тих значень,
+які задовольняють певну умову (наприклад, парні числа)."""
+# import random
+# import re
+
+# start = 1
+# end = 20
+# my_dict = {num: num for num in range(start, end + 1)}
+# print(my_dict)
+# sorted_dict = filter(lambda x: x % 2 == 0, my_dict.values())
+# print(list(sorted_dict))
+
+
+"""Створіть два словники та напишіть функцію, яка об'єднує їх у новий словник. Якщо ключі збігаються, об'єднайте значення в одне."""
+# dict1 = {'a': 1, 'b': 2, 'c': 3}
+# dict2 = {'b': 4, 'd': 5, 'e': 6}
+# def add_dicts(dict1:dict, dict2:dict) ->dict:
+#     dict3 = {}
+#     dict3.update(dict1)
+#     for key, value in dict2.items():
+#         if key in dict3:
+#             dict3[key] += value
+#         else:
+#             dict3[key] = value
+#     return dict3
+# print(add_dicts(dict1, dict2))
+"""Створіть словник, який містить рядок тексту.
+# Підрахуйте кількість кожної цифри у тексті та збережіть результат у словнику.
+# Виведіть отриманий словник підрахунку кількості кожної цифри у тексті."""
+
+# text_dictionary = {
+#      'sample_text': "T1h2i4s i6s a7 sa4787mpl1845650e t4457ext. It4564645 can co739664ntain multi400568ple se55ntence3223s."}
+# count_dict = {}
+# text = text_dictionary['sample_text']
+# for num in text:
+#      if num.isdigit():
+#           count_dict[num] = count_dict.get(num, 0) + 1
+# print('Кількість цифр в цьому виразі:')
+# print()
+# for key, value in count_dict.items():
+#     print(key, value, end="|")
 
 """Модуль datetime надає класи для маніпуляції датою і часом."""
 """Створення об'єктів дати та часу"""

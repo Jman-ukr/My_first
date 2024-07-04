@@ -259,21 +259,83 @@
 
 """Уяви, що у тебе є словник, де ключами є імена студентів, а значеннями – списки їх оцінок. Напиши функцію, 
 яка перетворює цей словник у словник, де ключами є оцінки, а значеннями – списки студентів, які отримали цю оцінку."""
-def transform_grades(students_grades):
-    grades_students = {}
-    for student, grades in students_grades.items():
-        for grade in grades:
-            if grade not in grades_students:
-                grades_students[grade] = []
-            grades_students[grade].append(student)
-    return grades_students
+# def transform_grades(students_grades):
+#     grades_students = {}
+#     for student, grades in students_grades.items():
+#         for grade in grades:
+#             if grade not in grades_students:
+#                 grades_students[grade] = []
+#             grades_students[grade].append(student)
+#     return grades_students
+#
+# students_grades = {
+#     'Alice': [85, 90, 78],
+#     'Bob': [90, 88, 92],
+#     'Charlie': [78, 85, 85],
+# }
+#
+# result = transform_grades(students_grades)
+# print(result)
 
-students_grades = {
-    'Alice': [85, 90, 78],
-    'Bob': [90, 88, 92],
-    'Charlie': [78, 85, 85],
-}
+"""Напиши функцію, яка приймає список чисел і повертає всі можливі пари чисел з цього списку."""
+# import itertools
+#
+# def find_pairs(numbers):
+#     pairs = list(itertools.combinations(numbers, 2))
+#     return pairs
+#
+# numbers = [1, 2, 3, 4]
+# result = find_pairs(numbers)
+# print(result)  # Виведе [(1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 4)]
 
-result = transform_grades(students_grades)
-print(result)
+"""Напиши функцію, яка приймає матрицю і повертає її транспоновану версію."""
+# def transpose_matrix(matrix):
+#     transposed = [[0] * len(matrix) for _ in range(len(matrix[0]))]
+#     for i in range(len(matrix)):
+#         for j in range(len(matrix[0])):
+#             transposed[j][i] = matrix[i][j]
+#     return transposed
+#
+# matrix = [
+#     [1, 2, 3],
+#     [4, 5, 6]
+# ]
+#
+# result = transpose_matrix(matrix)
+# print(result)  # Виведе [[1, 4], [2, 5], [3, 6]]
+
+"""Як створити словник, де ключами є числа від 1 до 5, а значеннями - квадрати цих чисел?"""
+# my_dict = {}
+# for i in range(1, 6):
+#     my_dict[i] = i ** 2
+# for key, value in my_dict.items():
+#     print(key, value)
+"""Як видалити всі пари ключ-значення зі словника inventory, які мають значення менше 10?"""
+# filtered_inventory = {key: value for key, value in my_dict.items() if value >= 10}
+# print(filtered_inventory)
+"""Створіть словник чисел і використайте анонімну функцію для відфільтрування лише тих значень,
+які задовольняють певну умову (наприклад, парні числа)."""
+# start = 1
+# end = 20
+# my_dict = {num: num for num in range(start, end + 1)}
+# print(my_dict)
+# even_num_dict = filter(lambda x: x % 2 == 0, my_dict.values())
+# print(list(even_num_dict))
+
+"""Створіть словник, який містить рядок тексту.
+# Підрахуйте кількість кожної цифри у тексті та збережіть результат у словнику.
+# Виведіть отриманий словник підрахунку кількості кожної цифри у тексті."""
+
+text_dictionary = {
+     'sample_text': "T1h2i4s i6s a7 sa4787mpl1845650e t4457ext. It4564645 can co739664ntain multi400568ple se55ntence3223s."}
+count_dict = {}
+text = text_dictionary['sample_text']
+for num in text:
+     if num.isdigit():
+          count_dict[num] = count_dict.get(num, 0) + 1
+print('Кількість цифр в цьому виразі:')
+print()
+for key, value in count_dict.items():
+    print(key, value, end="|")
+
 

@@ -104,19 +104,53 @@ Note: for this kata y isn't considered a vowel."""
 
 """Напиши функцію, яка приймає словник і повертає ключ з найбільшим значенням."""
 # V1
-def max_value_key(d):
-    if not d:
-        return None
-    list_of_keys = []
-    for key in d.keys():
-        list_of_keys.append(key)
-    max_key = max(list_of_keys)
-    return max_key
+# def max_value_key(d):
+#     if not d:
+#         return None
+#     list_of_keys = []
+#     for key in d.keys():
+#         list_of_keys.append(key)
+#     max_key = max(list_of_keys)
+#     return max_key
 
 # V2
-def max_value_key(d):
-    return max(d.keys(), default=None)
+# def max_value_key(d):
+#     return max(d.keys(), default=None)
+#
+# # Приклад використання:
+# my_dict = {'a': 1, 'b': 2, 'c': 3}
+# print(max_value_key(my_dict))  # Виведе: 'c'
 
-# Приклад використання:
-my_dict = {'a': 1, 'b': 2, 'c': 3}
-print(max_value_key(my_dict))  # Виведе: 'c'
+"""The input string can be of arbitrary length - in particular, it may be empty. All input is guaranteed to be valid, 
+i.e. each input string will only ever consist of 'G', 'C', 'A' and/or 'T'."""
+# def dna_to_rna(dna):
+#     return dna.replace("T", "U")
+
+"""Write a function that given, an array arr, returns an array containing at each index i the amount of numbers 
+that are smaller than arr[i] to the right."""
+
+#V1
+def smaller(arr):
+
+    n = len(arr)
+    result = [0] * n  # Ініціалізуємо масив результатів нулями
+
+    # Зворотній прохід по масиву
+    for i in range(n - 2, -1, -1):
+        count = 0
+        # Перевіряємо елементи праворуч від поточного елемента
+        for j in range(i + 1, n):
+            if arr[j] < arr[i]:
+                count += 1
+        # Оновлюємо результат для поточного елемента
+        result[i] = count
+
+    return result
+print(smaller([5, 4, 3, 2, 1]))
+
+# V2
+
+# def smaller(arr):
+#     # Good Luck!
+#     return [len([a for a in arr[i:] if a < arr[i]]) for i in range(0, len(arr))]
+
