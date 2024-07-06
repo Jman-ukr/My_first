@@ -326,16 +326,62 @@
 # Підрахуйте кількість кожної цифри у тексті та збережіть результат у словнику.
 # Виведіть отриманий словник підрахунку кількості кожної цифри у тексті."""
 
-text_dictionary = {
-     'sample_text': "T1h2i4s i6s a7 sa4787mpl1845650e t4457ext. It4564645 can co739664ntain multi400568ple se55ntence3223s."}
-count_dict = {}
-text = text_dictionary['sample_text']
-for num in text:
-     if num.isdigit():
-          count_dict[num] = count_dict.get(num, 0) + 1
-print('Кількість цифр в цьому виразі:')
-print()
-for key, value in count_dict.items():
-    print(key, value, end="|")
+# text_dictionary = {
+#      'sample_text': "T1h2i4s i6s a7 sa4787mpl1845650e t4457ext. It4564645 can co739664ntain multi400568ple se55ntence3223s."}
+# count_dict = {}
+# text = text_dictionary['sample_text']
+# for num in text:
+#      if num.isdigit():
+#           count_dict[num] = count_dict.get(num, 0) + 1
+# print('Кількість цифр в цьому виразі:')
+# print()
+# for key, value in count_dict.items():
+#     print(key, value, end="|")
+
+"""Спробуйте написати функцію, яка приймає вкладений список з різними типами даних і повертає новий список, 
+де всі числові значення подвоєні, а всі інші елементи залишаються без змін."""
+# def double_numbers(nested_list):
+#     result = []
+#     for sublist in nested_list:
+#         new_sublist = []
+#         for item in sublist:
+#             if isinstance(item, (int, float)):
+#                 new_sublist.append(item * 2)
+#             else:
+#                 new_sublist.append(item)
+#         result.append(new_sublist)
+#     return result
+#
+# nested_list = [
+#             [1, 2, 3],
+#             ['a', 'b', 'c'],
+#             [True, False, None],
+#             [4.5, 5.6, 6.7]
+#         ]
+# new_list = double_numbers(nested_list)
+# for sublist in new_list:
+#     print(sublist)
+
+"""Створи 1D масив NumPy з чисел від 0 до 9."""
+# import numpy as np
+# my_list = [n for n in range(0, 11)]
+# np_array = np.array(my_list)
+# array = np.arange(11)
+# print(np_array, end=" ")
+# print()
+# print("Array: \n", array)
+
+
+"""Створи 2D масив NumPy з будь-яких чисел."""
+# nested_list = [
+#             [1, 2, 3],
+#             ['a', 'b', 'c'],
+#             [True, False, None],
+#             [4.5, 5.6, 6.7]
+#         ]
+# np_array_2 = np.array(nested_list)
+# first_slice = np_array_2[0][:2]
+# print(first_slice)
+
 
 

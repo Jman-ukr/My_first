@@ -2939,3 +2939,157 @@ False, якщо атрибут не існує."""
 # print(greet("Alice"))  # Виведе: Hello, Alice!
 # print(PI)  # Виведе: 3.14159
 
+"""бібліотека Numpy"""
+import numpy as np
+"""Створення масивів NumPy
+Масиви NumPy можуть бути створені з різних джерел, включаючи списки Python. Ось кілька прикладів:"""
+# Звичайний список Python
+# py_list = [1, 2, 3, 4, 5]
+
+# Створення масиву NumPy
+# np_array = np.array(py_list)
+# print(np_array)  # Виведе: [1 2 3 4 5]
+
+"""Багатовимірний масив:"""
+# Вкладений список
+# nested_list = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9]
+# ]
+
+# Створення 2D масиву NumPy
+# np_array_2d = np.array(nested_list)
+# print(np_array_2d)
+
+"""Основні атрибути масивів NumPy"""
+
+# Розмірність (shape):
+# print(np_array_2d.shape)  # Виведе: (3, 3)
+
+#Тип даних (dtype):
+# print(np_array_2d.dtype)  # Виведе тип даних елементів масиву
+
+# Кількість вимірів (ndim):
+# print(np_array_2d.ndim)  # Виведе: 2
+
+"""Основні операції з масивами NumPy
+Додавання, віднімання, множення, ділення:"""
+
+# array1 = np.array([1, 2, 3])
+# array2 = np.array([4, 5, 6])
+
+# Додавання
+# print(array1 + array2)  # Виведе: [5 7 9]
+
+# Віднімання
+# print(array1 - array2)  # Виведе: [-3 -3 -3]
+
+# Множення
+# print(array1 * array2)  # Виведе: [4 10 18]
+
+# Ділення
+# print(array1 / array2)  # Виведе: [0.25 0.4 0.5]
+
+"""Операції з усім масивом:"""
+
+# array = np.array([1, 2, 3])
+
+# Додавання скаляра
+# print(array + 10)  # Виведе: [11 12 13]
+
+# Множення на скаляр
+# print(array * 2)  # Виведе: [2 4 6]
+
+"""Створення спеціальних масивів"""
+
+#Масив з нулями:
+# zeros_array = np.zeros((2, 3))
+# print(zeros_array)
+
+#Масив з одиницями:
+# ones_array = np.ones((2, 3))
+# print(ones_array)
+
+#Масив з випадковими числами:
+# random_array = np.random.rand(2, 3)
+# print(random_array)
+
+"""Індексація та зрізи"""
+
+#Індексація:
+# array = np.array([1, 2, 3, 4, 5])
+# print(array[0])  # Виведе: 1
+# print(array[-1])  # Виведе: 5
+
+#Зрізи:
+# array = np.array([1, 2, 3, 4, 5])
+# print(array[1:4])  # Виведе: [2 3 4]
+# print(array[:3])  # Виведе: [1 2 3]
+# print(array[3:])  # Виведе: [4 5]
+
+"""Операції з матрицями"""
+"""Транспонування матриці:"""
+# matrix = np.array([
+#     [1, 2, 3],
+#     [4, 5, 6]
+# ])
+# transpose_matrix = matrix.T
+# print(transpose_matrix)
+# # Виведе:
+# # [[1 4]
+# #  [2 5]
+# #  [3 6]]
+
+"""Множення матриць:"""
+# matrix1 = np.array([
+#     [1, 2],
+#     [3, 4]
+# ])
+# matrix2 = np.array([
+#     [5, 6],
+#     [7, 8]
+# ])
+# product = np.dot(matrix1, matrix2)
+# print(product)
+# # Виведе:
+# # [[19 22]
+# #  [43 50]]
+
+"""Статистичні операції
+Середнє значення:"""
+# array = np.array([1, 2, 3, 4, 5])
+# mean_value = np.mean(array)
+# print(mean_value)  # Виведе: 3.0
+
+"""Медіана:"""
+# median_value = np.median(array)
+# print(median_value)  # Виведе: 3.0
+
+"""Стандартне відхилення:"""
+# std_deviation = np.std(array)
+# print(std_deviation)  # Виведе: 1.4142135623730951
+
+""" Фільтрування даних
+Умовне фільтрування:"""
+# array = np.array([1, 2, 3, 4, 5])
+# filtered_array = array[array > 2]
+# print(filtered_array)  # Виведе: [3 4 5]
+
+"""NumPy підтримує потужні методи індексації та зрізів для отримання підмасивів або окремих елементів масивів."""
+# import numpy as np
+#
+# matrix = np.array([
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9]
+# ])
+#
+# # Отримання окремого елементу
+# element = matrix[0, 1]
+# print("Елемент на позиції (0, 1):", element)  # Виведе: 2
+#
+# # Отримання підмасиву зрізом
+# subarray = matrix[:2, 1:]
+# print("Підмасив з перших двох рядків і з другого стовпця далі:", subarray)
+
