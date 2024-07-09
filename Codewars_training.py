@@ -159,21 +159,35 @@ that are smaller than arr[i] to the right."""
 For instance, for the list [3, 4, 3, 6] the function should return 10,
 and for the list [1, 10, 3, 10, 10] the function should return 4."""
 #V1
-def sum_no_duplicates(l):
-    count_dict = {}
-    for num in l:
-        count_dict[num] = count_dict.get(num, 0) + 1
-    result_list = [key for key, value in count_dict.items() if value == 1]
-    return sum(result_list)
-
-print(sum_no_duplicates([5, 6, 10, 3, 10, 10, 6, 7, 0, 9, 1, 1, 6, 3, 1]))
+# def sum_no_duplicates(l):
+#     count_dict = {}
+#     for num in l:
+#         count_dict[num] = count_dict.get(num, 0) + 1
+#     result_list = [key for key, value in count_dict.items() if value == 1]
+#     return sum(result_list)
+#
+# print(sum_no_duplicates([5, 6, 10, 3, 10, 10, 6, 7, 0, 9, 1, 1, 6, 3, 1]))
 
 
 
 #V2
 
-def sum_no_duplicates(l):
-    return sum(n for n in set(l) if l.count(n) == 1)
+# def sum_no_duplicates(l):
+#     return sum(n for n in set(l) if l.count(n) == 1)
+
+"""In some scripting languages like PHP, there exists a logical operator (e.g. &&, ||, and, or, etc.) called the 
+"Exclusive Or" (hence the name of this Kata). The exclusive or evaluates two booleans. It then returns true if exactly 
+one of the two expressions are true, false otherwise. For example:"""
+# def xor(a,b):
+#     if a == False and b == False:
+#         return False
+#     elif a == True and b == True:
+#         return False
+#     return True
+# V2
+# def xor(a,b):
+#     return a != b
+
 
 
 

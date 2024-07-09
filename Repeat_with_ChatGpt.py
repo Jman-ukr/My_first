@@ -383,5 +383,105 @@
 # first_slice = np_array_2[0][:2]
 # print(first_slice)
 
+"""Витягти всі email адреси з тексту"""
+# import re
+#
+# text = "Please contact us at support@example.com or sales@example.co.uk for more information."
+# pattern = re.compile(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}")
+#
+# # Знайти всі email адреси
+# matches = pattern.findall(text)
+# print(matches)
 
+"""Замінити всі цифри на символ "#"""
+# import re
+#
+# text = "My phone number is 12345 and my zip code is 67890."
+# pattern = re.compile(r"\d")
+#
+# # Замінити всі цифри на "#"
+# result = pattern.sub("#", text)
+# print(result)
 
+"""Перевірити, чи містить рядок IP-адресу"""
+# import re
+#
+# text = "The server is located at 192.168.1.1."
+# pattern = re.compile(r"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b")
+#
+# # Шукати IP-адресу
+# match = pattern.search(text)
+# if match:
+#     print(f"IP-адреса знайдена: {match.group()}")
+# else:
+#     print("IP-адресу не знайдено")
+
+"""Чудово! Давай створимо клас, який моделює просту систему керування бібліотекою. У нас буде клас Book, який представляє книгу, і клас Library, який управляє колекцією книг.
+
+Вимоги:
+Клас Book:
+Атрибути: title, author, year.
+Метод display_info(), який виводить інформацію про книгу.
+
+Клас Library:
+Атрибут: список книг.
+Метод add_book(book), який додає книгу до бібліотеки.
+Метод remove_book(title), який видаляє книгу з бібліотеки за назвою.
+Метод display_books(), який виводить інформацію про всі книги в бібліотеці."""
+
+class Book:
+    def __init__(self, title, author, year):
+        self.title = title
+        self.author = author
+        self.year = year
+
+    def show_info_book(self):
+        print(f'Title:{self.title}, Author:{self.author}, Year:{self.year}')
+
+class Library:
+    def __init__(self):
+        self.book_list = []
+    def add_book(self, book):
+        self.book_list.append(book)
+
+    def remove_book(self, title):
+        for book in self.book_list:
+            if book.title == title:
+                self.book_list.remove(book)
+                break
+# або book_list = [book for book in self.book_list if book.title != title]
+    def display_books(self):
+        if not self.book_list:
+            print("No books in the library.")
+        else:
+            for book in self.book_list:
+                book.show_info_book()
+
+# Створення об'єктів класу Book
+book1 = Book("The Catcher in the Rye", "J.D. Salinger", 1951)
+book2 = Book("To Kill a Mockingbird", "Harper Lee", 1960)
+book3 = Book("1984", "George Orwell", 1949)
+
+# Створення об'єкту класу Library
+library = Library()
+
+# Додавання книг до бібліотеки
+library.add_book(book1)
+library.add_book(book2)
+library.add_book(book3)
+
+# Виведення всіх книг у бібліотеці
+print("Books in the library:")
+library.display_books()
+
+# Видалення однієї книги
+library.remove_book("To Kill a Mockingbird")
+
+# Виведення всіх книг у бібліотеці після видалення
+print("\nBooks in the library after removal:")
+library.display_books()
+
+"""Список використовується, коли важливий порядок елементів і можливість дублювання.
+Словник використовується, коли швидко потрібен доступ до об'єктів за ключем.
+Кортеж використовується, коли потрібна незмінювана послідовність об'єктів.
+Множина використовується, коли потрібна унікальність елементів і порядок не має значення."""
