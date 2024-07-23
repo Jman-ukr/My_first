@@ -3139,8 +3139,9 @@ import numpy as np
 #
 # class HumanExtended(Human):
 #     def __init__(self, name, age):
-#         self.name = name
 #         super().__init__(age)  # успадкування атрибуту
+#         self.name = name
+#
 #
 #     def say_hello(self):
 #         print("Hello, I am {} and I am {}".format(self.name, self.age))
@@ -3171,3 +3172,7 @@ import numpy as np
 # print(s.can_cure())
 # print(s.can_build())
 # print(Person.__mro__)  # показує порядок пошуку методів
+
+"""Поліморфізм - це концепція в ООП, яка дозволяє об'єктам різних класів обробляти дані за допомогою одного і того ж методу.
+Поліморфізм часто використовується разом з успадкуванням для створення класів, що можуть працювати з однаковими 
+інтерфейсами або методами, навіть якщо ці класи є різними."""

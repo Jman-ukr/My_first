@@ -168,8 +168,6 @@ and for the list [1, 10, 3, 10, 10] the function should return 4."""
 #
 # print(sum_no_duplicates([5, 6, 10, 3, 10, 10, 6, 7, 0, 9, 1, 1, 6, 3, 1]))
 
-
-
 #V2
 
 # def sum_no_duplicates(l):
@@ -187,6 +185,36 @@ one of the two expressions are true, false otherwise. For example:"""
 # V2
 # def xor(a,b):
 #     return a != b
+"""Make a function that returns the value multiplied by 50 and increased by 6. 
+If the value entered is a string it should return "Error"."""
+# def problem(a):
+#     if isinstance(a, str):
+#         return f"Error"
+#     else:
+#         return a * 50 + 6
+
+# V2
+# def problem(a):
+#     return "Error" if isinstance(a,str) else a*50+6
+
+"""Given a string, you have to return a string in which each character (case-sensitive) is repeated once."""
+# def double_char(s):
+#     list_s = list(s)
+#     new_s = []
+#     for char in list_s:
+#         new_s.append(char)
+#         new_s.append(char)
+#     new_s_str = ''.join(new_s)
+#     return new_s_str
+# print(double_char("Hello World"))
+
+# V2
+# def double_char(s):
+#     return ''.join(c * 2 for c in s)
+
+# V3
+# def double_char(s):
+#     return ''.join(map(lambda e:e*2,s))
 
 
 

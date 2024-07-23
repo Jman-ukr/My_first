@@ -429,59 +429,186 @@
 Метод remove_book(title), який видаляє книгу з бібліотеки за назвою.
 Метод display_books(), який виводить інформацію про всі книги в бібліотеці."""
 
-class Book:
-    def __init__(self, title, author, year):
-        self.title = title
-        self.author = author
-        self.year = year
+# class Book:
+#     def __init__(self, title, author, year):
+#         self.title = title
+#         self.author = author
+#         self.year = year
+#
+#     def show_info_book(self):
+#         print(f'Title:{self.title}, Author:{self.author}, Year:{self.year}')
+#
+# class Library:
+#     def __init__(self):
+#         self.book_list = []
 
-    def show_info_book(self):
-        print(f'Title:{self.title}, Author:{self.author}, Year:{self.year}')
+#     def add_book(self, book):
+#         self.book_list.append(book)
+#
+#     def remove_book(self, title):
+#         for book in self.book_list:
+#             if book.title == title:
+#                 self.book_list.remove(book)
+#                 break
 
-class Library:
-    def __init__(self):
-        self.book_list = []
-    def add_book(self, book):
-        self.book_list.append(book)
+# # або book_list = [book for book in self.book_list if book.title != title]
 
-    def remove_book(self, title):
-        for book in self.book_list:
-            if book.title == title:
-                self.book_list.remove(book)
-                break
-# або book_list = [book for book in self.book_list if book.title != title]
-    def display_books(self):
-        if not self.book_list:
-            print("No books in the library.")
-        else:
-            for book in self.book_list:
-                book.show_info_book()
+#     def display_books(self):
+#         if not self.book_list:
+#             print("No books in the library.")
+#         else:
+#             for book in self.book_list:
+#                 book.show_info_book()
+#
+# # Створення об'єктів класу Book
+# book1 = Book("The Catcher in the Rye", "J.D. Salinger", 1951)
+# book2 = Book("To Kill a Mockingbird", "Harper Lee", 1960)
+# book3 = Book("1984", "George Orwell", 1949)
+#
+# # Створення об'єкту класу Library
+# library = Library()
+#
+# # Додавання книг до бібліотеки
+# library.add_book(book1)
+# library.add_book(book2)
+# library.add_book(book3)
+#
+# # Виведення всіх книг у бібліотеці
+# print("Books in the library:")
+# library.display_books()
+#
+# # Видалення однієї книги
+# library.remove_book("To Kill a Mockingbird")
+#
+# # Виведення всіх книг у бібліотеці після видалення
+# print("\nBooks in the library after removal:")
+# library.display_books()
 
-# Створення об'єктів класу Book
-book1 = Book("The Catcher in the Rye", "J.D. Salinger", 1951)
-book2 = Book("To Kill a Mockingbird", "Harper Lee", 1960)
-book3 = Book("1984", "George Orwell", 1949)
+"""--Список використовується, коли важливий порядок елементів і можливість дублювання.
+   --Словник використовується, коли швидко потрібен доступ до об'єктів за ключем.
+   --Кортеж використовується, коли потрібна незмінювана послідовність об'єктів.
+   --Множина використовується, коли потрібна унікальність елементів і порядок не має значення."""
 
-# Створення об'єкту класу Library
-library = Library()
+""""""
 
-# Додавання книг до бібліотеки
-library.add_book(book1)
-library.add_book(book2)
-library.add_book(book3)
 
-# Виведення всіх книг у бібліотеці
-print("Books in the library:")
-library.display_books()
+    # def __str__(self):
+    #     return f"{self.title} by {self.artist}, released in {self.year}"
 
-# Видалення однієї книги
-library.remove_book("To Kill a Mockingbird")
+# class MusicLibrary:
+#     def __init__(self):
+#         self.albums = {}  # словник для зберігання альбомів
+#
+#     def add_album(self, title, artist, year):
+#         self.albums[title] = {'artist': artist, 'year': year}  # додавання альбому до словника
+#
+#     def remove_album(self, title):
+#         if title in self.albums:
+#             del self.albums[title]  # видалення альбому за назвою
+#
+#     def find_album(self, title):
+#         return self.albums.get(title, None)  # повертає альбом або None, якщо альбом не знайдено
+#
+#     def display_albums(self):
+#         for title, info in self.albums.items():
+#             print(f"{title} by {info['artist']}, released in {info['year']}")
 
-# Виведення всіх книг у бібліотеці після видалення
-print("\nBooks in the library after removal:")
-library.display_books()
+# Створимо музичну бібліотеку і додамо альбоми
+# library = MusicLibrary()
+# library.add_album("Abbey Road", "The Beatles", 1969)
+# library.add_album("The Dark Side of the Moon", "Pink Floyd", 1973)
+# library.add_album("Thriller", "Michael Jackson", 1982)
 
-"""Список використовується, коли важливий порядок елементів і можливість дублювання.
-Словник використовується, коли швидко потрібен доступ до об'єктів за ключем.
-Кортеж використовується, коли потрібна незмінювана послідовність об'єктів.
-Множина використовується, коли потрібна унікальність елементів і порядок не має значення."""
+# Відобразимо всі альбоми
+# print("All albums:")
+# library.display_albums()
+
+# Знайдемо альбом за назвою
+# print("\nFinding 'Thriller':")
+# found_album = library.find_album("Thriller")
+# if found_album:
+#     artist = found_album['artist']
+#     year = found_album['year']
+#     print(f"Thriller by {artist}, released in {year}")
+# else:
+#     print("Album not found")
+#
+# # Видалимо альбом за назвою
+# print("\nRemoving 'Abbey Road'")
+# library.remove_album("Abbey Road")
+#
+# # Відобразимо всі альбоми після видалення
+# print("\nAll albums after removal:")
+# library.display_albums()
+
+"""Напиши свій клас, використовуючи ці поняття. Наприклад, створити клас Animal з атрибутами species, name, age та 
+методом speak, який буде повертати рядок типу "{name} makes a sound"."""
+# class Animal:
+#     def __init__(self, species, name, age):
+#         self.species = species
+#         self.name = name
+#         self.age = age
+#     def speak(self):
+#         print(f'{self.name} makes a sound')
+#
+# animal1 = Animal('Cat', 'Bazya', '5')
+# animal1.speak()
+
+"""Створити базовий клас Vehicle з атрибутами make, model та методом start().
+Створити похідний клас Car, який успадковує від Vehicle і додає атрибут number_of_doors.
+Перевизначити метод start() у класі Car, щоб він виводив повідомлення, що машина запускається.
+Створити ще один похідний клас Bike, який успадковує від Vehicle і додає атрибут type_of_handlebar.
+Перевизначити метод start() у класі Bike, щоб він виводив повідомлення, що велосипед запускається."""
+
+# class Vehicle:
+#     def __init__(self, make, model):
+#         self.make = make
+#         self.model = model
+#     def start(self):
+#         pass
+# class Car(Vehicle):
+#     def __init__(self, make, model, number_of_doors):
+#         super().__init__(make, model)
+#         self.number_of_doors = number_of_doors
+#
+#     def start(self):
+#         return f"Car {self.model} in motion"
+# class Bike(Vehicle):
+#     def __init__(self, make, model, type_of_handlebar):
+#         super().__init__(make, model)
+#         self.type_of_handlebar = type_of_handlebar
+#
+#     def start(self):
+#         return f"Bike {self.model} in motion"
+# car1 = Car(make=1998, model='Tesla', number_of_doors=4)
+# bike1 = Bike(make=2003, model='Hanson', type_of_handlebar='Right')
+# print(car1.start())
+# print(bike1.start())
+
+class Engine:
+    def __init__(self, engine_type):
+        self.engine_type = engine_type
+    def start_engine(self):
+        return f"Engine {self.engine_type} is starting."
+class Wheels:
+    def __init__(self, number_of_wheels):
+        self.number_of_wheels = number_of_wheels
+    def start_moving(self):
+        return f"Vehicle with {self.number_of_wheels} wheels is moving."
+class Car(Engine, Wheels):
+    def __init__(self, brand, model, engine_type, number_of_wheels):
+        super().__init__(engine_type)
+        Wheels.__init__(self, number_of_wheels)
+        self.brand = brand
+        self.model = model
+    def star(self):
+        engine_start = self.start_engine()
+        moving = self.start_moving()
+        return f"{self.brand} {self.model}: {engine_start} {moving}"
+car = Car(brand="Tesla", model='X', engine_type='electric', number_of_wheels=4)
+print(car.star())
+print(Car.__mro__)
+
+
+
+
