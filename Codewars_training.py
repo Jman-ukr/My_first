@@ -216,6 +216,44 @@ If the value entered is a string it should return "Error"."""
 # def double_char(s):
 #     return ''.join(map(lambda e:e*2,s))
 
+"""You're writing code to control your town's traffic lights. You need a function to handle each change from green, to yellow, to red, and then to green again.
+Complete the function that takes a string as an argument representing the current state of the light and returns a string representing the state the light should change to.
+For example, when the input is green, output should be yellow."""
+# def update_light(current):
+#     if current == "green":
+#         return "yellow"
+#     elif current == "yellow":
+#         return "red"
+#     else:
+#         current == "red"
+#         return "green"
+# # V2
+# def update_light(current):
+#     return {"green": "yellow", "yellow": "red", "red": "green"}[current]
 
+"""Write a simple function that takes as a parameter a date object and returns a boolean value representing whether the date is today or not.
+Make sure that your function does not return a false positive by only checking the day."""
+# from datetime import datetime
+#
+# def is_today(date : datetime) -> bool:
+#     today = datetime.now().date()
+#     if date.date() == today:
+#         return True
+#     return False
+#
+# # V2
+# from datetime import datetime
+#
+# def is_today(date):
+#     return date.date() == datetime.today().date()
+"""Write a program where Alex can input (n) how many times the hoop goes round and it will return him an encouraging message:
+
+If Alex gets 10 or more hoops, return the string "Great, now move on to tricks".
+If he doesn't get 10 hoops, return the string "Keep at it until you get it"."""
+# def hoop_count(n):
+#     if n < 10:
+#         return "Keep at it until you get it"
+#     return "Great, now move on to tricks"
+# print(hoop_count(10))
 
 

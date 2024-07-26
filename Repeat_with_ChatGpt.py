@@ -585,30 +585,224 @@
 # print(car1.start())
 # print(bike1.start())
 
-class Engine:
-    def __init__(self, engine_type):
-        self.engine_type = engine_type
-    def start_engine(self):
-        return f"Engine {self.engine_type} is starting."
-class Wheels:
-    def __init__(self, number_of_wheels):
-        self.number_of_wheels = number_of_wheels
-    def start_moving(self):
-        return f"Vehicle with {self.number_of_wheels} wheels is moving."
-class Car(Engine, Wheels):
-    def __init__(self, brand, model, engine_type, number_of_wheels):
-        super().__init__(engine_type)
-        Wheels.__init__(self, number_of_wheels)
-        self.brand = brand
-        self.model = model
-    def star(self):
-        engine_start = self.start_engine()
-        moving = self.start_moving()
-        return f"{self.brand} {self.model}: {engine_start} {moving}"
-car = Car(brand="Tesla", model='X', engine_type='electric', number_of_wheels=4)
-print(car.star())
-print(Car.__mro__)
+# class Engine:
+#     def __init__(self, engine_type):
+#         self.engine_type = engine_type
+#     def start_engine(self):
+#         return f"Engine {self.engine_type} is starting."
+# class Wheels:
+#     def __init__(self, number_of_wheels):
+#         self.number_of_wheels = number_of_wheels
+#     def start_moving(self):
+#         return f"Vehicle with {self.number_of_wheels} wheels is moving."
+# class Car(Engine, Wheels):
+#     def __init__(self, brand, model, engine_type, number_of_wheels):
+#         super().__init__(engine_type)
+#         Wheels.__init__(self, number_of_wheels)
+#         self.brand = brand
+#         self.model = model
+#     def star(self):
+#         engine_start = self.start_engine()
+#         moving = self.start_moving()
+#         return f"{self.brand} {self.model}: {engine_start} {moving}"
+# car = Car(brand="Tesla", model='X', engine_type='electric', number_of_wheels=4)
+# print(car.star())
+# print(Car.__mro__)
 
+"""Створи клас Library, який представляє бібліотеку книг. Клас Library повинен мати методи для додавання книги, 
+видалення книги, пошуку книги за назвою та відображення всіх книг у бібліотеці."""
+"""Клас Book, який представляє книгу, має включати атрибути title, author та year, і метод description, 
+що повертає рядок з інформацією про книгу."""
+# class Book:
+#     def __init__(self, tittle, author, year):
+#         self.tittle = tittle
+#         self.author = author
+#         self.year = year
+#     def description(self):
+#         return f'{self.tittle} by {self.author}, published in {self.year}'
+# class Library:
+#     def __init__(self):
+#         self.books = []
+#     def add_book(self, book):
+#         self.books.append(book)
+#     def remove_book(self,tittle):
+#         for book in self.books:
+#             if book.tittle == tittle:
+#                 self.books.remove(book)
+#                 return f'Book {tittle} removed from the Library'
+#         return f'Book {tittle} not found in the library'
+#
+#     def find_book(self, title):
+#         for book in self.books:
+#             if book.tittle == title:
+#                 return book.description()
+#         return f'Book {title} not found in the Library'
+#     def display_books(self):
+#         if not self.books:
+#             return "No books in the Library"
+#         return "\n".join(book.description() for book in self.books)
+#         # for book in self.books:
+#         #     print(book.description())
+# book1 = Book("1984", "George Orwell", 1949)
+# book2 = Book("To Kill a Mockingbird", "Harper Lee", 1960)
+# book3 = Book("The Great Gatsby", "F. Scott Fitzgerald", 1925)
+#
+# library = Library()
+#
+# library.add_book(book1)
+# library.add_book(book2)
+# library.add_book(book3)
+#
+# print(library.display_books())
 
+"""Робимо за допомогою словника"""
+# class Book:
+#     def __init__(self, title, author, year):
+#         self.title = title
+#         self.author = author
+#         self.year = year
+#     def description(self): # Метод, який буде виводити інформацію по книгам
+#         return f'Book: {self.title}, by {self.author} released in {self.year}'
+# class Library:
+#
+#     def __init__(self):
+#         self.books = {}
+#     def add_book(self, book):
+#         self.books[book.title] = book
+#     def remove_book(self,title):
+#         if title in self.books:
+#             del self.books[title]
+#             return f"Book: {title} was successfully deleted"
+#         return f"Book: {title} not found"
+#     def list_books(self):
+#         # return "\n".join(book.description() for book in self.books.values())
+#         for title, book in library.books.items():
+#             print(book.description())
+#
+# book1 = Book('1984', 'George Orwell', 1949)
+# book2 = Book('To Kill a Mockingbird', 'Harper Lee', 1960)
+#
+# library = Library()
+# library.add_book(book1)
+# library.add_book(book2)
+#
+# library.list_books()
+# Доступ до об'єкта книги через словник
+# book = library.books['To Kill a Mockingbird']
 
+# Тепер можна отримати доступ до атрибутів об'єкта книги
+# print(book.title)  # Виведе: To Kill a Mockingbird
+# print(book.author) # Виведе: Harper Lee
+# print(book.year)   # Виведе: 1960
+
+"""Створи клас Student, який має атрибути name (ім'я) і grades (список оцінок).
+Додай метод add_grade, який додає оцінку до списку оцінок студента.
+Додай метод average_grade, який повертає середній бал студента.
+Додай метод is_passed, який повертає True, якщо середній бал більше або дорівнює 60, і False в іншому випадку."""
+
+# class Kurs:
+#     def __init__(self):
+#         self.kurs = []
+#     def add_student(self,student):
+#         self.kurs.append(student)
+#     def remove_student(self,student):
+#         if student in self.kurs:
+#             self.kurs.remove(student)
+#             return f"Student {student} was removed"
+#         return f"Student {student} not found"
+#     def show_all_students(self):
+#         return "\n".join(student.show_student() for student in self.kurs)
+#     def show_average_all(self):
+#         if not self.kurs:
+#             return 0
+#         total_average = sum(student.av_grade() for student in self.kurs) / len(self.kurs)
+#         return total_average
+# class Student:
+#     def __init__(self, name, grades):
+#         self.name = name
+#         self.grades = grades
+#     def add_grade(self, grade):
+#         self.grades.append(grade)
+#     def av_grade(self):
+#         return sum(self.grades)//len(self.grades)
+#
+#     def is_passed(self):
+#         return self.av_grade() >= 60
+#
+#     def show_student(self):
+#         return f'Student: {self.name}, has grades: {self.grades}, average grade:{self.av_grade()}'
+# student1 = Student("Jman", [10, 20, 30, 40, 50, 60, 70])
+# student2 = Student("Alice", [85, 90, 78, 92, 88])
+# student3 = Student("Bob", [55, 60, 58, 62, 59])
+# student1.add_grade(80)
+# kurs1 = Kurs()
+# kurs1.add_student(student1)
+# kurs1.add_student(student2)
+# kurs1.add_student(student3)
+# Показ усіх студентів
+# print(kurs1.show_all_students())
+
+# Показ середнього балу всіх студентів
+# print(f"Average grade of all students: {kurs1.show_average_all()}")
+"""Генератори списків"""
+"""Створіть список парних чисел від 0 до 20:"""
+# my_list = [x for x in range(21) if x % 2 == 0]
+"""З переліку слів створіть список, де кожне слово перевернуте:"""
+# words = ["apple", "banana", "cherry"]
+# my_list = [x[::-1] for x in words]
+# print(my_list)
+"""Створіть список пар (число, його квадрат) для чисел від 0 до 9:"""
+# my_list = [(x, x ** 2) for x in range(10)]
+# print(my_list)
+"""Створіть список перших літер кожного слова в переліку слів:"""
+# words = ["hello", "world", "python", "list", "comprehension"]
+# my_list = [x[0] for x in words]
+# print(my_list)
+"""Створіть список із чисел від 1 до 100, які є кратними 3 або 5:"""
+# my_list = [x for x in range(101) if x % 3 == 0 or x % 5 == 0]
+# print(my_list)
+"""З переліку речень створіть список із кількістю слів у кожному реченні:"""
+
+# sentences = ["Hello world", "Python list comprehensions are powerful", "Keep practicing"]
+# my_list = [len(sentence.split()) for sentence in sentences]
+# print(my_list)
+"""Створіть список, де кожен елемент - це список чисел від 0 до n, де n варіюється від 1 до 10:"""
+# my_list = [(x for x in range(n)) for n in range(1, 11)]
+"""З переліку слів створіть словник, де ключ - це слово, а значення - це довжина цього слова:"""
+# words = ["apple", "banana", "cherry"]
+# my_dict = {x: len(x) for x in words}
+# print(my_dict)
+"""З переліку слів створіть список з унікальних символів у цих словах:"""
+# words = ["apple", "banana", "cherry"]
+# unique_list = [list(set(char for word in words for char in word))]
+# print(unique_list)
+"""Створіть список з усіх пар чисел від 1 до 10, де перше число менше другого:"""
+# pairs = [(x, y) for x in range(1, 11) for y in range(x+1, 11)]
+# print(pairs)
+"""Гаманці"""
+class Wallet:
+    def __init__(self, currency, name="Uknown"):
+        if currency not in ("USD", "EUR"):
+            raise ValueError("Wrong currency")
+        self.money = 0
+        self.currency = currency
+        self. name = name
+    def wallet_top_up(self, how_many):
+        self.money = self.money + how_many
+        # return how_many
+    def wallet_top_down(self, how_many):
+        if self.money - how_many < 0:
+            raise ValueError("Not enough money")
+        self.money = self.money - how_many
+        return how_many
+    def info_money(self):
+        print(self.money)
+
+wallet1 = Wallet("USD", "BILL")
+wallet2 = Wallet("USD")
+wallet1.wallet_top_up(1000)
+wallet2.wallet_top_up(500)
+wallet2.wallet_top_up(wallet1.wallet_top_down(300))
+wallet1.info_money()
+wallet2.info_money()
 
